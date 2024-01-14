@@ -1,26 +1,28 @@
-const toggles = document.querySelectorAll('.toggle');
-let checkedCount = 0;
+const toggles = document.querySelectorAll(".toggle")
 
-toggles.forEach(toggle => {
-  const checkbox = toggle.querySelector('.toggle-checkbox');
-  const label = toggle.querySelector('.toggle-label');
-  
-  checkbox.addEventListener('change', () => {
-    if (checkbox.checked) {
-      checkedCount++;
-      toggle.classList.add('checked');
-      
-      if (checkedCount === 2) {
-        toggles.forEach(otherToggle => {
-          if (otherToggle !== toggle && otherToggle.classList.contains('checked')) {
-            otherToggle.classList.remove('checked');
-            otherToggle.querySelector('.toggle-checkbox').checked = false;
-          }
-        });
-      }
-    } else {
-      checkedCount--;
-      toggle.classList.remove('checked');
-    }
-  });
-});
+const good = document.querySelector("#good")
+const cheap = document.querySelector("#cheap")
+const fast = document.querySelector("#fast")
+
+console.log(good)
+toggles.forEach((toggle)=>toggle.addEventListener("change",(e)=>{
+    console.log(e)
+    console.log(e.target)
+    transitionFunc(e.target)}))
+
+
+function transitionFunc(theClickedOne){
+
+    if(good.checked && cheap.checked && fast.checked){
+        if(good === theClickedOne){
+            fast.checked = false
+        }
+        if(cheap === theClickedOne){
+            good.checked = false
+        }
+        if(fast === theClickedOne){
+            cheap.checked = false
+        }
+    }
+
+}
