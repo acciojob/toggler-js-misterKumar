@@ -1,20 +1,71 @@
- .toggle-container {
-      display: flex;
-      justify-content: space-between;
-    }
+input{
+	height:0;
+	width:0;
+	opacity:0;
+}
+label{
+	position: relative;
+	display: inline-block;
+	width: 70px;
+	height: 34px;
+	margin: 10px;
+/* 	background:black; */
+}
+.slider{
+	position: absolute;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+	cursor: pointer;
+	background-color: #ccc;
+	border-radius: 25px;
+	transition: .4s;
+}
 
-    .toggle {
-      cursor: pointer;
-      padding: 10px;
-      border: 2px solid #ccc;
-      border-radius: 5px;
-      margin: 5px;
-    }
+.slider:before{
+	position:absolute;
+	content:'';
+	height:25px;
+	width: 25px;
+	left:5px;
+	bottom: 5px;
+	background: white;
+	border-radius: 30px;
+	transition: .4s;
+}
 
-    .good { background-color: #aaffaa; }
-    .cheap { background-color: #ffaaaa; }
-    .fast { background-color: #aaaaff; }
+input:checked + .slider{
+	background: purple;
+}
+input:checked + .slider:before{
+	left:39px;
+}
 
-    .max-two:checked + .toggle {
-      pointer-events: none;
-    }
+.g1{
+	display: flex;
+	justify-content: center;
+	align-items:center;
+	text-align: center;
+	font-size: 20px;
+}
+.g2{
+	display: flex;
+	justify-content: center;
+	align-items:center;
+	text-align: center;
+	font-size: 20px;
+}
+.g3{
+	display: flex;
+	justify-content: center;
+	align-items:center;
+	text-align: center;
+	font-size: 20px;
+}
+.g3 .fast{
+	margin-left:15px;
+}
+h2{
+	text-align:center;
+}
